@@ -1,11 +1,10 @@
 # project_apex   
 > Frist steps to DevOps success :octocat:
 
-
 ### PREREQUISITES FOR PRACTICE
 ---
 1. 설치1
-  - 테스트
+    - 테스트
 
 2. 설치2   
 
