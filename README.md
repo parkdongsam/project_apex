@@ -18,4 +18,11 @@ end code block.
 
 ![thoughtbot](https://thoughtbot.com/brand_assets/93:44.svg)
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="크리에이티브 커먼즈 라이선스" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />이 저작물은 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">크리에이티브 커먼즈 저작자표시 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.
+<p xmlns:dct="http://purl.org/dc/terms/">
+<a rel="license" href="http://creativecommons.org/publicdomain/mark/1.0/">
+<img src="http://i.creativecommons.org/p/mark/1.0/88x31.png"
+     style="border-style: none;" alt="Public Domain Mark" />
+</a>
+<br />
+<a href="https://github.com/parkdongsam/project_apex" rel="dct:creator"><span property="dct:title">PARK DongSam</span></a>)이(가) 작성하고 <a href="https://github.com/parkdongsam/project_apex" rel="dct:publisher"><span property="dct:title">PARK DongSam</span></a>이(가) 신고한 이 저작물 (<span property="dct:title">Personal Github</span>은(는) 일체의 저작권 규제로부터 자유롭습니다.
+</p>
