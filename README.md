@@ -5,6 +5,7 @@
 ---
   1. 설치 프로그램
       - Atom + Git-Plus
+        - test
       - Git
       - Git Desktop
       - VMware Workstion
