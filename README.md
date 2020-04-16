@@ -1,10 +1,11 @@
 # project_apex   
 ---
-Frist steps to DevOps success
+Frist steps to DevOps success   
+
 ### PREREQUISITES FOR PRACTICE
 ---
-1. 설치1
-2. 설치2
+1. 설치1   
+2. 설치2   
 
 ### LICENSE  
 ---
