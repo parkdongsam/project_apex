@@ -6,8 +6,8 @@
   1. 설치 프로그램
       - Atom + Git-Plus
       - Git
-      - GitDesktop
-      - VMwareWorkstion
+      - Git Desktop
+      - VMware Workstion
       - XShell
 
   2. 환경 구성
