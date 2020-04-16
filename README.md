@@ -3,6 +3,7 @@
 ### PREREQUISITES FOR PRACTICE
 ---
 1. 설치1
+  easd
 2. 설치2   
 
 ### LICENSE  
