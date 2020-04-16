@@ -4,12 +4,11 @@
 ### PREREQUISITES FOR PRACTICE
 ---
   1. 설치 프로그램
-      - Atom + Git-Plus
-        - test
-      - Git
-      - Git Desktop
-      - VMware Workstion
-      - XShell
+      - [Atom](https://atom.io/) + Git-Plus
+      - [Git](https://git-scm.com/download/win)
+      - [Git Desktop](https://desktop.github.com/)
+      - [VMware Workstion](https://www.vmware.com/kr/products/workstation-pro.html)
+      - [XShell](https://www.netsarang.com/ko/xshell/)
 
   2. 환경 구성
       - XShell
