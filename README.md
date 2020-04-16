@@ -3,10 +3,18 @@
 
 ### PREREQUISITES FOR PRACTICE
 ---
-  1. 설치1  
-    - 테스트
+  1. 설치 프로그램
+    - Atom + Git-Plus
+    - Git
+    - GitDesktop
+    - VMwareWorkstion
+    - XShell
 
-  2. 설치2   
+  2. 환경 구성
+    - XShell
+      - export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;1m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]"
+      - export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;2m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]"
+      - export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;10m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]"   
 
 ### LICENSE  
 ---
