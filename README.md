@@ -12,11 +12,12 @@
 
   2. 환경 구성
       - XShell
-      ```bash
-      export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;1m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]"
-      export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;2m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]"
-      export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;10m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]"
-      ```
+          ```bash
+          export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;10m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]" // Red
+          export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]" // Green
+          export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;12m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]" // Yellow
+          export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;13m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]" // Blue
+          ```
 
 ### LICENSE  
 ---
