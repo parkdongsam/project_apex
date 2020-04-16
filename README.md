@@ -3,10 +3,10 @@
 
 ### PREREQUISITES FOR PRACTICE
 ---
-1. 설치1
+  1. 설치1
     - 테스트
 
-2. 설치2   
+  2. 설치2   
 
 ### LICENSE  
 ---
