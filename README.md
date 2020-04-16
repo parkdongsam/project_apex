@@ -19,6 +19,7 @@
           export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;13m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]" // Blue
           ```
 
+
 ### LICENSE  
 ---
 > No Copyright     
