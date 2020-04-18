@@ -4,14 +4,14 @@
 ## PREREQUISITES FOR PRACTICE
 ---
 ####   1. Index
-      - [OS](https://github.com/parkdongsam/project_apex/tree/master/Index/OS)  
-        - [Linux](https://github.com/parkdongsam/project_apex/tree/master/Index/OS/Linux)
-          - [2.6.32](https://github.com/parkdongsam/project_apex/tree/master/Index/OS/Linux/2.6.32)  
-          - [3.10.0](https://github.com/parkdongsam/project_apex/tree/master/Index/OS/Linux/3.10.0)  
-          - [4.18.0](https://github.com/parkdongsam/project_apex/tree/master/Index/OS/Linux/4.18.0)       
-      - [Docker](https://github.com/parkdongsam/project_apex/tree/master/Index/Docker)    
-          - Updating  
-      - Updating  
+  - [OS](https://github.com/parkdongsam/project_apex/tree/master/Index/OS)  
+    - [Linux](https://github.com/parkdongsam/project_apex/tree/master/Index/OS/Linux)
+      - [2.6.32](https://github.com/parkdongsam/project_apex/tree/master/Index/OS/Linux/2.6.32)  
+      - [3.10.0](https://github.com/parkdongsam/project_apex/tree/master/Index/OS/Linux/3.10.0)  
+      - [4.18.0](https://github.com/parkdongsam/project_apex/tree/master/Index/OS/Linux/4.18.0)       
+  - [Docker](https://github.com/parkdongsam/project_apex/tree/master/Index/Docker)    
+    - Updating  
+  - Updating  
 
 ####   2.  Application Download link
       - [Atom](https://atom.io/) + [Git-Plus](https://github.com/akonwi/git-plus)  
