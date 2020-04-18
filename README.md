@@ -18,6 +18,17 @@
           export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;12m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]" // Yellow
           export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;13m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]" // Blue
           ```
+      - Vim
+          ```bash
+          set number
+          ```
+  3. 개별 목록
+      - OS
+        - Linux
+          - 2.6.32  
+          - 3.10.0  
+          - 4.18.0       
+      - Docker  
 
 
 ### LICENSE  
