@@ -4,11 +4,11 @@
 ### PREREQUISITES FOR PRACTICE
 ---
   3. Index
-      - OS
-        - Linux
-          - 2.6.32  
-          - 3.10.0  
-          - 4.18.0       
+      * OS
+        * Linux
+          * 2.6.32  
+          * 3.10.0  
+          * 4.18.0       
       - Docker  
           - Updating  
       - Updating  
