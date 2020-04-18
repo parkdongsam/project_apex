@@ -32,7 +32,7 @@
       - Vim
           ```bash
           Updating
-          ```
+          ```  
 
 ### LICENSE  
 ---
