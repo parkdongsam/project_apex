@@ -14,7 +14,7 @@
       - Updating  
 
   1. Download link
-      - [Atom](https://atom.io/) + Git-Plus
+      - [Atom](https://atom.io/) + [Git-Plus](https://github.com/akonwi/git-plus)  
       - [Git](https://git-scm.com/download/win) + [Git Desktop](https://desktop.github.com/)  
       - [VMware Workstion](https://www.vmware.com/kr/products/workstation-pro.html)
       - [XShell](https://www.netsarang.com/ko/xshell/)  
