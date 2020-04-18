@@ -3,17 +3,17 @@
 
 ### PREREQUISITES FOR PRACTICE
 ---
-  3. Index
-      * OS
-        * Linux
-          * 2.6.32  
-          * 3.10.0  
-          * 4.18.0       
+  1. [Index](https://github.com/parkdongsam/project_apex/Index)  
+      - [OS](https://github.com/parkdongsam/project_apex/Index/OS)  
+        - Linux
+          - 2.6.32  
+          - 3.10.0  
+          - 4.18.0       
       - Docker  
           - Updating  
       - Updating  
 
-  1. Download link
+  2. Download link
       - [Atom](https://atom.io/) + [Git-Plus](https://github.com/akonwi/git-plus)  
       - [Git](https://git-scm.com/download/win) + [Git Desktop](https://desktop.github.com/)  
       - [VMware Workstion](https://www.vmware.com/kr/products/workstation-pro.html)
@@ -21,7 +21,7 @@
       - [Notepad++](https://notepad-plus-plus.org/downloads/)  
       - [Vim](https://www.vim.org/download.php)  
 
-  2. Customize
+  3. Customize
       - XShell
           ```bash
           export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;10m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]" // Red
