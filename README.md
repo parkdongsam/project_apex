@@ -3,14 +3,25 @@
 
 ### PREREQUISITES FOR PRACTICE
 ---
-  1. 설치 프로그램
-      - [Atom](https://atom.io/) + Git-Plus
-      - [Git](https://git-scm.com/download/win)
-      - [Git Desktop](https://desktop.github.com/)
-      - [VMware Workstion](https://www.vmware.com/kr/products/workstation-pro.html)
-      - [XShell](https://www.netsarang.com/ko/xshell/)
+  3. Index
+      - OS
+        - Linux
+          - 2.6.32  
+          - 3.10.0  
+          - 4.18.0       
+      - Docker  
+          - Updating  
+      - Updating  
 
-  2. 환경 구성
+  1. Download link
+      - [Atom](https://atom.io/) + Git-Plus
+      - [Git](https://git-scm.com/download/win) + [Git Desktop](https://desktop.github.com/)  
+      - [VMware Workstion](https://www.vmware.com/kr/products/workstation-pro.html)
+      - [XShell](https://www.netsarang.com/ko/xshell/)  
+      - [Notepad++](https://notepad-plus-plus.org/downloads/)  
+      - [Vim](https://www.vim.org/download.php)  
+
+  2. Customize
       - XShell
           ```bash
           export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;10m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]" // Red
@@ -20,16 +31,8 @@
           ```
       - Vim
           ```bash
-          set number
+          Updating
           ```
-  3. 개별 목록
-      - OS
-        - Linux
-          - 2.6.32  
-          - 3.10.0  
-          - 4.18.0       
-      - Docker  
-
 
 ### LICENSE  
 ---
