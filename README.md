@@ -3,12 +3,12 @@
 
 ### PREREQUISITES FOR PRACTICE
 ---
-  1. [Index](https://github.com/parkdongsam/project_apex/Index)  
-      - [OS](https://github.com/parkdongsam/project_apex/Index/OS)  
-        - Linux
-          - 2.6.32  
-          - 3.10.0  
-          - 4.18.0       
+  1. [Index](https://github.com/parkdongsam/project_apex/tree/master/Index)  
+      - [OS](https://github.com/parkdongsam/project_apex/tree/master/Index/OS)  
+        - [Linux](https://github.com/parkdongsam/project_apex/tree/master/Index/OS/Linux)
+          - [2.6.32](https://github.com/parkdongsam/project_apex/tree/master/Index/OS/Linux/2.6.32)  
+          - [3.10.0](https://github.com/parkdongsam/project_apex/tree/master/Index/OS/Linux/3.10.0)  
+          - [4.18.0](https://github.com/parkdongsam/project_apex/tree/master/Index/OS/Linux/4.18.0)       
       - Docker  
           - Updating  
       - Updating  
