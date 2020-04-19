@@ -1,11 +1,12 @@
-- version check
-#docker -v
+# version check
+``#docker -v
 Docker version 19.03.8, build afacb8b
+``
 
-- logout
-#exit
+# logout
+`` #exit
 ctrl + p + q
-
+``
 - Command
 #docker images    // 도커 엔진에 존재하는 이미지의 목록 출력
 
