@@ -22,7 +22,7 @@
   - [Vim](https://www.vim.org/download.php)  
 
 ####   3. CUSTOMIZE
-  - XShell
+  - Bash
     ```bash
     export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;10m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]" // Red
     export PS1="[\u@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\[$(tput sgr0)\] \w]\\$\[$(tput sgr0)\]" // Green

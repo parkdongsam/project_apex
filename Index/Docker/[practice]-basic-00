@@ -1,0 +1,29 @@
+- version check
+#docker -v
+Docker version 19.03.8, build afacb8b
+
+- logout
+#exit
+ctrl + p + q
+
+- Command
+#docker images    // 도커 엔진에 존재하는 이미지의 목록 출력
+
+무작위 16진수 Hash 값은 컨테이너의 고유 ID, 너무 길어 앞 12자리정도만 사용.
+EX) docker create -i -t -name mycentos centos:7
+
+#docker start [image]   // 컨테이너 시작
+#docker attach [image]  // 컨테이너 내부로 들어가기
+
+#docker create -i -t name test centos:7
+#docker run -i -t name test centos:7
+
+-i interactive
+-t tty
+
+- run과 create의 차이
+run     : 이미지가 없는 경우 PULL -> create -> start -> attach (-i -t 사용 시)
+create  : 이미지가 없는 경우 PULL -> create
+
+- 컨테이너 목록 확인
+#docker ps
