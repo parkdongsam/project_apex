@@ -3,7 +3,7 @@
 #docker run -d --name db_volume -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=wordpress -v /home/wordpress_db:/var/lib/mysql mysql:5.7
 ```
 ```
-docker run -d -e WORDPRESS_DB_PASSWORD=password --name wordpress_volume --link db_volume:mysql -p 80 wordpress
+#docker run -d -e WORDPRESS_DB_PASSWORD=password --name wordpress_volume --link db_volume:mysql -p 80 wordpress
 ```
 > -v 옵션을 이용하여 호스트 볼륨과 컨테이너 볼륨을 연결  
 > -v|--volume[=[[HOST-DIR:]CONTAINER-DIR[:OPTIONS]]]   
@@ -49,3 +49,65 @@ local               test_volume
 WARNING! This will remove all local volumes not used by at least one container.
 Are you sure you want to continue? [y/N]
 ```
+---
+
+### Network Function
+```
+#yum -y install bridge-utils
+#brctl show docker0
+bridge name	bridge id		     STP enabled	interfaces
+docker0		8000.02428cdd9205	 no		        veth2c11d85
+							                            veth360bdad
+							                            veth4adf633
+```
+> brctl을 이용하여 docker0 브리지에 veth가 바인딩 되었는지 확인할 수 있다.
+
+```
+#docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+936e998a112b        bridge              bridge              local
+c3f63598a399        host                host                local
+c6f32b47196a        none                null                local
+
+#docker network inspect bridge
+[
+    {
+        "Name": "bridge",
+        "Id": "936e998a112bfc907c766f9d0c64d49d4fae2376c661f86c9eaca2a3a51a1d2b",
+        "Created": "2020-04-15T19:05:53.264693365+09:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.17.0.0/16",
+                    "Gateway": "172.17.0.1"
+                }
+            ]
+...
+```
+> Subnet, Gateway, Container 의 Network 정보를 확인 할 수 있다.
+
+```
+#docker network create --driver bridge d3bridge
+e63d098df3df1c337d5a03bfc398d3ad0dd8d75f9f1d1665b0cab564d87ef289
+
+#docker run -i -t --name bridge_test --net d3bridge ubuntu:14.04
+
+root@e754001f84ae:/# ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:ac:12:00:02  
+          inet addr:172.18.0.2  Bcast:172.18.255.255  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:6 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:516 (516.0 B)  TX bytes:0 (0.0 B)
+...
+#docker network disconnect d3bridge bridge_test
+#docker network connect d3bridge bridge_test
+```
+> 새로운 대역의 IP주소가 추가 되었다.
+> 임의로 생성한 브릿지 네트워크를 컨테이너에 붙였다 뗄 수 있다.
