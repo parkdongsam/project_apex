@@ -38,10 +38,10 @@ a0f914725191        ubuntu:14.04        "/bin/bash"         3 days ago          
 77cf269593b5        ubuntu:14.04        "/bin/bash"         3 days ago          Exited (0) 3 days ago   
 ```
 ```bash
-docker rename [old] [new]
+#docker rename [old] [new]
 ```
 ### Remove
-```bash
+```c
 #docker rm [container]    // 중지 후 사용 가능
 #docker rm -f [container] // 중지 후 제거
 #docker container prune   // 모든 컨테이너 제거
