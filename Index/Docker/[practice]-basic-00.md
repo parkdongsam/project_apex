@@ -3,7 +3,7 @@
 #docker -v  
 Docker version 19.03.8, build afacb8b
 ```
-
+---
 ### Command
 ```
 #docker images   // 도커 엔진에 존재하는 이미지의 목록 출력
@@ -24,8 +24,9 @@ Docker version 19.03.8, build afacb8b
 
 > run과 create의 차이  
 run     : 이미지가 없는 경우 PULL -> create -> start -> attach (-i -t 사용 시)  
-create  : 이미지가 없는 경우 PULL -> create  
+create  : 이미지가 없는 경우 PULL -> create
 
+---
 ### Container List
 ```
 #docker ps
@@ -39,7 +40,8 @@ a0f914725191        ubuntu:14.04        "/bin/bash"         3 days ago          
 ```
 ```
 #docker rename [old] [new]
-```
+```  
+---
 ### Remove
 ```
 #docker rm [container]    // 중지 후 사용 가능
@@ -51,7 +53,7 @@ a0f914725191        ubuntu:14.04        "/bin/bash"         3 days ago          
 #docker stop $(docker ps -a -q)   
 #docker rm $(docker ps -a -q)     // 변수 활용 모든 컨테이너 제거
 ```
-
+---
 ### Network
 ```
 root@a0f914725191:/# ifconfig
@@ -73,13 +75,13 @@ lo        Link encap:Local Loopback
 
 ```
 > 172.17.0 IP 대역을 순차적으로 사용함
-
+---
 ### Port Forwarding
 ```
 #docker -run -i -t --name [name] -p [host port]:[container port] [container]
 ```
 > [HOST IP]:[HOST PORT]:[CONTAINER PORT] 형식으로 사용 가능
-
+---
 ### Practice
 ```
 #docker run -d --name wordpressdb -e MYSQL_ROOT_PASSWORD=password \
@@ -109,4 +111,8 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 33c6e05719bf        wordpress           "docker-entrypoint.s…"   About a minute ago   Up About a minute   0.0.0.0:32768->80/tcp   unruffled_curran
 6aa19058d220        mysql:5.7           "docker-entrypoint.s…"   3 minutes ago        Up 3 minutes        3306/tcp, 33060/tcp     wordpressdb
 ```
-> 0.0.0.0:32768->80/tcp 포트 정보 확인, #docker port [container] 로 확인 가능
+> 0.0.0.0:32768->80/tcp 포트 정보 확인, #docker port [container] 로 확인 가능하다.  
+> link 옵션은 container의 실행 순서의 의존성도 정의한다.  
+> ex) #docker start [WEB] -> ERROR      DB -> WEB
+
+![network](./images/network00.png)
