@@ -41,7 +41,7 @@ a0f914725191        ubuntu:14.04        "/bin/bash"         3 days ago          
 #docker rename [old] [new]
 ```
 ### Remove
-```c
+```
 #docker rm [container]    // 중지 후 사용 가능
 #docker rm -f [container] // 중지 후 제거
 #docker container prune   // 모든 컨테이너 제거
