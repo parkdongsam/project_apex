@@ -111,3 +111,41 @@ eth0      Link encap:Ethernet  HWaddr 02:42:ac:12:00:02
 ```
 > 새로운 대역의 IP주소가 추가 되었다.
 > 임의로 생성한 브릿지 네트워크를 컨테이너에 붙였다 뗄 수 있다.
+
+```
+#docker network create --driver=bridge --subnet=100.100.100.0/24 -ip-range=100.100.100.0/24 --gateway=100.100.100.1 my_network
+```
+> 서브넷, 게이트웨이 등을 임의로 지정하여 생성할 수 있다.
+
+```
+docker run -i -t --name host_network --net host ubuntu:14.04
+```
+> 호스트의 네트워크를 사용하며,  호스트네임도 호스트와 동일하다.
+> 별도의 포트포워딩 없이 서비스가 가능하다.
+> --net none 옵션으로 외부와 단절된 컨테이너를 사용할 수 있다.
+
+```
+#docker run -i -t -d --name network_container_1 ubuntu:14.04
+#docker run -i -t -d --name network_container_2 --net container:network_container_1 ubuntu:14.04
+
+#docker exec network_container_1 ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:ac:11:00:08  
+          inet addr:172.17.0.8  Bcast:172.17.255.255  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:8 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:656 (656.0 B)  TX bytes:0 (0.0 B)
+
+#docker exec network_container_2 ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:ac:11:00:08  
+          inet addr:172.17.0.8  Bcast:172.17.255.255  Mask:255.255.0.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:8 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:656 (656.0 B)  TX bytes:0 (0.0 B)
+```
+>--net container 옵션으로 다른 컨테이너의 네트워크 네임스페이스 환경을 공유 한다. 공유되는 속성은 IP, MAC 등이다. 추가적으로 내부 IP를 할당받지 않으며 호스트에 가상 인터페이스(veth)도 생성되지 않는다.
+
+![network](./images/network01.png)
