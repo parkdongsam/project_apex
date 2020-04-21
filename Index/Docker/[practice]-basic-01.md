@@ -113,7 +113,7 @@ eth0      Link encap:Ethernet  HWaddr 02:42:ac:12:00:02
 > 임의로 생성한 브릿지 네트워크를 컨테이너에 붙였다 뗄 수 있다.
 
 ```
-#docker network create --driver=bridge --subnet=100.100.100.0/24 -ip-range=100.100.100.0/24 --gateway=100.100.100.1 my_network
+#docker network create --driver=bridge --subnet=100.100.100.0/24 --ip-range=100.100.100.0/24 --gateway=100.100.100.1 my_network
 ```
 > 서브넷, 게이트웨이 등을 임의로 지정하여 생성할 수 있다.
 
@@ -149,3 +149,26 @@ eth0      Link encap:Ethernet  HWaddr 02:42:ac:11:00:08
 >--net container 옵션으로 다른 컨테이너의 네트워크 네임스페이스 환경을 공유 한다. 공유되는 속성은 IP, MAC 등이다. 추가적으로 내부 IP를 할당받지 않으며 호스트에 가상 인터페이스(veth)도 생성되지 않는다.
 
 ![network](./images/network01.png)
+
+### Bridge Network
+```
+#docker network create --driver=bridge --subnet=100.100.100.0/24 --ip-range=100.100.100.0/24 --gateway=100.100.100.1 my_network
+#docker run -i -t -d --name net_alias_container_1 --net my_network --net-alias test ubuntu:14.04
+#docker run -i -t -d --name net_alias_container_2 --net my_network --net-alias test ubuntu:14.04
+#docker run -i -t -d --name net_alias_container_3 --net my_network --net-alias test ubuntu:14.04
+```
+> bridge 타입의 네트워크 my_network를 생성한다.
+> my_network를 사용하는 컨테이너를 사용하는데, --net-alias로 별칭을 만들어 사용한다.
+
+```
+#docker run -i -t --name net_alias_container_4 --net my_network ubuntu:14.04
+
+root@30e84d83f9a9:/# ping -c 1 test
+PING test (100.100.100.3) 56(84) bytes of data.
+64 bytes from net_alias_container_2.my_network (100.100.100.3): icmp_seq=1 ttl=64 time=0.118 ms
+
+root@30e84d83f9a9:/# ping -c 1 test
+PING test (100.100.100.2) 56(84) bytes of data.
+64 bytes from net_alias_container_1.my_network (100.100.100.2): icmp_seq=1 ttl=64 time=0.106 ms
+```
+> 도커 엔진에 내장된 DNS(127.0.0.11)를 이용하여 test라는 alias로 지정된 컨테이너에 핑테스트를 진행하면, 라운드로빈 방식으로 응답이 오는 것을 확인 할 수 있다.
