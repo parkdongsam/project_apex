@@ -90,3 +90,120 @@ Removing intermediate container b9828499fc9f
  ---> b0aabf04d89d
 
 ```
+
+> **-f** 옵션으로 Dockerfile을 지정할 수 있다.
+
+이미지를 빌드한 내용은 캐시에 저장되어, 다음 번 빌드 시 일부 중복된 명령어를 수행하지 않고 건너뛴다. 해당 기능은 유용할 수 있으나, 변경사항을 제대로 인식하지 못할 수 도 있기때문에 build 명령어에 --no-cahce 옵션을 추가하면, Dockerfile을 처음부터 다시 빌드하게된다.
+
+애플리케이션을 빌드할 떄는 많은 의존성 패키지와 라이브러리를 필요로 한다. (Ex Go)
+```bash
+# pwd
+/root/dockerfile01
+
+#ls
+Dockerfile  main.go
+
+#cat Dockerfile
+FROM golang
+ADD main.go /root
+WORKDIR /root
+RUN go build -o mainAPP main.go
+CMD ["./mainAPP"]
+
+#cat main.go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, world.")
+	}
+```
+```Bash
+#docker build -t go_image ./
+Sending build context to Docker daemon  3.072kB
+Step 1/5 : FROM golang
+ ---> 2421885b04da
+Step 2/5 : ADD main.go /root
+ ---> c541deefa5fb
+Step 3/5 : WORKDIR /root
+ ---> Running in 2492638d53b9
+Removing intermediate container 2492638d53b9
+ ---> 88bf5a086fb8
+Step 4/5 : RUN go build -o mainAPP main.go
+ ---> Running in e18406933c71
+Removing intermediate container e18406933c71
+ ---> de0ee3082e95
+Step 5/5 : CMD ["./mainAPP"]
+ ---> Running in 6a3c2e742570
+Removing intermediate container 6a3c2e742570
+ ---> 496925e9b160
+Successfully built 496925e9b160
+Successfully tagged go_image:latest
+```
+```bash
+#docker images
+REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
+go_image                                 latest              496925e9b160        4 minutes ago       811MB
+```
+애플리케이션의 크기는 매우작지만, 관련 패키지 및 라이브러리가 이미지의 크기를 차지하고 있다. (811MB)
+
+멀티스테이지는 Dockerfile 안에 여러개의 FROM 이미지를 정의하여 빌드 후 생성되는 이미지의 용량을 줄일 수 있다.
+
+```Bash
+#cat Dockerfile
+FROM golang
+ADD main.go /root
+WORKDIR /root
+RUN go build -o mainAPP main.go
+
+FROM alpine:latest
+WORKDIR /root
+COPY --from=0 /root/mainAPP ./
+CMD ["./mainAPP"]
+```
+> **COPY** 명령어는 첫반째 FROM에서 사용된 이미지의 최종상태에 존재하는 mainAPP 파일을 두번째 이미지인 alpine:latest로 복사한다. **--from=0** 은 첫 번째 FROM에서 빌드된 이미지의 최종 상태를 의미한다. (alpine은 유명한 Linux 배포판보다 크기가 매우작지만 기본적인 프로그램을 실행에 필요한 필수 요소들이 포함되어있는 Linux 배포판이다.)
+
+```bash
+#docker build ./ -t go_image:multi-stage
+Sending build context to Docker daemon  3.072kB
+Step 1/8 : FROM golang
+ ---> 2421885b04da
+Step 2/8 : ADD main.go /root
+ ---> Using cache
+ ---> c541deefa5fb
+Step 3/8 : WORKDIR /root
+ ---> Using cache
+ ---> 88bf5a086fb8
+Step 4/8 : RUN go build -o mainAPP main.go
+ ---> Using cache
+ ---> de0ee3082e95
+Step 5/8 : FROM alpine:latest
+latest: Pulling from library/alpine
+cbdbe7a5bc2a: Pull complete
+Digest: sha256:9a839e63dad54c3a6d1834e29692c8492d93f90c59c978c1ed79109ea4fb9a54
+Status: Downloaded newer image for alpine:latest
+ ---> f70734b6a266
+Step 6/8 : WORKDIR /root
+ ---> Running in f47a7d0c9380
+Removing intermediate container f47a7d0c9380
+ ---> ad95e47a9b72
+Step 7/8 : COPY --from=0 /root/mainAPP ./
+ ---> 72630d3471a1
+Step 8/8 : CMD ["./mainAPP"]
+ ---> Running in 59f348760710
+Removing intermediate container 59f348760710
+ ---> 0c1cb47fa8b5
+Successfully built 0c1cb47fa8b5
+Successfully tagged go_image:multi-stage
+```
+```
+#docker images
+REPOSITORY                               TAG                 IMAGE ID            CREATED             SIZE
+go_image                                 multi-stage         0c1cb47fa8b5        41 seconds ago      7.68MB
+go_image                                 latest              496925e9b160        13 minutes ago      811MB
+
+#docker run -i -t go_image:multi-stage
+Hello, world.
+```
+이미지의 크기가 매우 작아진것을 확인할 수 있다.
