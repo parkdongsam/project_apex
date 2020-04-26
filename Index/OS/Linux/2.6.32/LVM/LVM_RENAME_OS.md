@@ -13,4 +13,4 @@ sed -i "s/temp01_vgfs001/${VGFS}/g" /etc/fstab
 cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak
 dracut -f
 ```
-> root 영역을 LVM으로 구성한 후, 새로운 이름으로 변경이 필요할때 사용한다. 
+> root 영역을 LVM으로 구성한 후, 새로운 이름으로 변경이 필요할때 사용한다.
