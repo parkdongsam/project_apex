@@ -1,2 +1,2 @@
 # /Index/OS/Linux
-![Logo](./images/gnulinux.png)
+![Logo](./images/gnulinux.jpg)
