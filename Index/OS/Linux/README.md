@@ -1,2 +1,2 @@
 # /Index/OS/Linux
-![Logo](./images/tux1.png)
+![Logo](./images/tux.png)
